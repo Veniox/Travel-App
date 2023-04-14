@@ -1,51 +1,48 @@
 //
-//  TurkeyMapVC.swift
+//  GermanyMapVcCastles.swift
 //  Travel App
 //
-//  Created by Tolga Sarikaya on 13.04.23.
+//  Created by Tolga Sarikaya on 14.04.23.
 //
 
 import UIKit
 import MapKit
 
-class TurkeyMapVC: UIViewController {
+class GermanyMapVcCastles: UIViewController {
 
-    @IBOutlet var mapView: MKMapView!
+    @IBOutlet var mapview: MKMapView!
     
-    private let dataSource: MapDataSource
+    private let dataSource: GermanyMapDataSource
     
     required init?(coder: NSCoder) {
-        dataSource = MapDataSource()
+        dataSource = GermanyMapDataSource()
         super.init(coder: coder)
         
-        title = "Summer cities"
+        title = "Castles"
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        mapView.pointOfInterestFilter = MKPointOfInterestFilter(including: [.restaurant, .cafe, .nightlife,.hotel])
         
-        mapView.addAnnotations(dataSource.annotations)
-        mapView.showAnnotations(dataSource.annotations, animated: false)
+        mapview.pointOfInterestFilter = MKPointOfInterestFilter(including: [.restaurant, .cafe, .nightlife,.hotel])
+        mapview.addAnnotations(dataSource.annotations)
+        mapview.showAnnotations(dataSource.annotations, animated: false)
+
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation) as? MKMarkerAnnotationView {
             
             if annotation is MKPointAnnotation {
-              
-                
+               
             }
             return annotationView
         }
         return nil
     }
-
-    
     
 
-   
+    
 
 }

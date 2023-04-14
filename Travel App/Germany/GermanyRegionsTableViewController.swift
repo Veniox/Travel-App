@@ -14,6 +14,7 @@ class GermanyRegionsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.backgroundView = UIImageView(image: UIImage(named: "Gruppe 3"))
        
     }
 
@@ -28,13 +29,25 @@ class GermanyRegionsTableViewController: UITableViewController {
         
         switch indexPath.row {
         case 0:
-            cell.textLabel?.text = "Cold"
+            cell.textLabel?.text = "Ski Centers"
         case 1:
-            cell.textLabel?.text = "Warm"
+            cell.textLabel?.text = "Castles"
         default:
             break
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.row {
+        case 0:
+            performSegue(withIdentifier: "toSkiCenters", sender: nil)
+        case 1:
+            performSegue(withIdentifier: "toCastles", sender: nil)
+        default:
+            return
+        }
     }
 
     

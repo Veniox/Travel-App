@@ -15,6 +15,7 @@ class RegionsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.backgroundView = UIImageView(image: UIImage(named: "Gruppe 3"))
       
     }
 
@@ -29,9 +30,9 @@ class RegionsTableViewController: UITableViewController {
         
         switch indexPath.row {
         case 0:
-            cell.textLabel?.text = "Warm Regions"
+            cell.textLabel?.text = "Summer Cities"
         case 1:
-            cell.textLabel?.text = "Cold Regions"
+            cell.textLabel?.text = "Ski Centers"
         default:
             break
         }
